@@ -36,7 +36,7 @@ struct TestingView: View {
                     Text("종합 낙상 여부 : ")
                     Text((viewModel.midFallState && viewModel.angleFallState && viewModel.ratioFallState) ? "낙상" : "비낙상")
                         .font(.largeTitle)
-                        .foregroundStyle(viewModel.ratioFallState ? .red : .blue)
+                        .foregroundStyle((viewModel.midFallState && viewModel.angleFallState && viewModel.ratioFallState) ? .red : .blue)
                 }
             }
         }
