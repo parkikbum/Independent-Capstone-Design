@@ -8,6 +8,7 @@ final class TestingViewModel: ObservableObject {
     @Published var drawingImage: UIImage = .init()
     @Published var midFallState: Bool = false
     @Published var angleFallState: Bool = false
+    @Published var ratioFallState: Bool = false
     
     private var visionProcessor: VisionProcessor
     private var fallDetectionProcessor: FallDetectionProcessor
@@ -57,23 +58,29 @@ extension TestingViewModel: VideoProcessorDelegate {
 extension TestingViewModel: VisionProcessorDelegate {
     func getEstimatedPoint(points: [VNHumanBodyPoseObservation.JointName : CGPoint]) {
         drawPoseOnImage(points: points)
-        fallDetectionProcessor.getMidPositionsAlgorithm(positions: points)
-        fallDetectionProcessor.angleFallDetectionAlgorithm(positions: points)
+        fallDetectionProcessor.perform(positions: points)
     }
 }
 
 extension TestingViewModel: FallDetectionProcessorDelegate {
+    func getRatioAlgorithmResult(state: PerformState, result: Bool?) {
+        if state == .done {
+            guard let result else { return }
+            ratioFallState = ratioFallState ? true : result
+        }
+    }
+    
     func getMidYChangeAlgorithmResult(state: PerformState, result: Bool?) {
         if state == .done {
             guard let result else { return }
-            midFallState = result
+            midFallState = midFallState ? true : result
         }
     }
     
     func getAngleAlgorithmResult(state: PerformState, result: Bool?) {
         if state == .done {
             guard let result else { return }
-            angleFallState = result
+            angleFallState = angleFallState ? true : result
         }
     }
 }

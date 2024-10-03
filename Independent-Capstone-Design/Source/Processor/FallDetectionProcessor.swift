@@ -6,19 +6,22 @@ final class FallDetectionProcessor {
     
     private var midYValues: [CGFloat] = []
     
-    //골반 중심 좌표의 변화량을 이용한 낙상 분석 알고리즘
-    func getMidPositionsAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
+    func perform(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
+        midPositionsAlgorithm(positions: positions)
+        angleFallDetectionAlgorithm(positions: positions)
+        bodyRatioFallDetectionAlgorithm(positions: positions)
+    }
+    
+    private func midPositionsAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
         let leftHipYPosition = positions[.leftHip]?.y ?? 0
         let rightHipYPosition = positions[.rightHip]?.y ?? 0
         let midYPosition = (leftHipYPosition + rightHipYPosition) / 2.0
         
         midYValues.append(midYPosition)
         
-        //연속된 5개의 프레임 마다
         if midYValues.count > 4 {
             let sum = midYValues.reduce(1, +)
             let mean = CGFloat(sum) / CGFloat(midYValues.count)
-            print("meanValue is : ", mean)
             let result = judgeFallMidPosition(value: mean,
                                               threshold: 0.75)
             midYValues.removeAll()
@@ -38,7 +41,7 @@ final class FallDetectionProcessor {
         }
     }
     
-    func angleFallDetectionAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
+    private func angleFallDetectionAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
         let nosePoistionX = positions[.nose]?.x ?? 0
         let nosePoistionY = positions[.nose]?.y ?? 0
         
@@ -61,8 +64,6 @@ final class FallDetectionProcessor {
         if angleInDegrees > 90 {
             angleInDegrees = 180 - angleInDegrees
         }
-        
-        print("angle Degree is : ", angleInDegrees)
 
         resultDelegate?.getAngleAlgorithmResult(state: .done,
                                                 result: judgeFallAngle(value: angleInDegrees,
@@ -77,5 +78,34 @@ final class FallDetectionProcessor {
             return false
         }
     }
+    
+    
+    private func bodyRatioFallDetectionAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
+        let leftTop = positions[.rightWrist] ?? .zero
+        let rightTop = positions[.leftWrist] ?? .zero
+        let leftBottom = positions[.rightAnkle] ?? .zero
+        
+        let width = abs(leftTop.x - rightTop.x)
+        let height = abs(leftTop.y - leftBottom.y)
+        
+        let result = judgeFallRatio(value: (width / height),
+                                    threshold: 1.0)
+        
+        resultDelegate?.getRatioAlgorithmResult(state: .done,
+                                                result: result)
+    }
+    
+    ///Value: 가로 / 세로 의 비율
+    private func judgeFallRatio(value: CGFloat,
+                                threshold: CGFloat) -> Bool {
+        if value >= 1.0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    
+    
 
 }

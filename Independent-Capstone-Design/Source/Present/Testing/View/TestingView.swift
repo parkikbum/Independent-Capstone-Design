@@ -24,6 +24,20 @@ struct TestingView: View {
                         .font(.largeTitle)
                         .foregroundStyle(viewModel.angleFallState ? .red : .blue)
                 }
+                
+                HStack {
+                    Text("신체 비율 낙상 여부 : ")
+                    Text(viewModel.ratioFallState ? "낙상" : "비낙상")
+                        .font(.largeTitle)
+                        .foregroundStyle(viewModel.ratioFallState ? .red : .blue)
+                }
+                
+                HStack {
+                    Text("종합 낙상 여부 : ")
+                    Text((viewModel.midFallState && viewModel.angleFallState && viewModel.ratioFallState) ? "낙상" : "비낙상")
+                        .font(.largeTitle)
+                        .foregroundStyle(viewModel.ratioFallState ? .red : .blue)
+                }
             }
         }
         .overlay {
