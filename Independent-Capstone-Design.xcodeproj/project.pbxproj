@@ -7,18 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36B7AE5D2CAE945300870915 /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE5C2CAE945300870915 /* TestingView.swift */; };
+		36B7AE5F2CAE952300870915 /* TestingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE5E2CAE952300870915 /* TestingViewModel.swift */; };
+		36B7AE622CAE95E500870915 /* VideoProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE612CAE95E500870915 /* VideoProcessor.swift */; };
+		36B7AE662CAE988000870915 /* VideoProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE652CAE988000870915 /* VideoProcessorDelegate.swift */; };
+		36B7AE682CAE98EA00870915 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE672CAE98EA00870915 /* UIImage+.swift */; };
+		36B7AE6A2CAE9A2100870915 /* VisionProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE692CAE9A2100870915 /* VisionProcessor.swift */; };
+		36B7AE6C2CAE9E4200870915 /* VisionProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE6B2CAE9E4200870915 /* VisionProcessorDelegate.swift */; };
+		36B7AE6E2CAEA63300870915 /* FallDetectionProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE6D2CAEA63300870915 /* FallDetectionProcessor.swift */; };
+		36B7AE702CAEAB9A00870915 /* FallDetectionProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE6F2CAEAB9A00870915 /* FallDetectionProcessorDelegate.swift */; };
+		36B7AE732CAEABEB00870915 /* PerformState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7AE722CAEABEB00870915 /* PerformState.swift */; };
 		36CFEDAF2CAE88B60045A8C5 /* Independent_Capstone_DesignApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEDAE2CAE88B60045A8C5 /* Independent_Capstone_DesignApp.swift */; };
 		36CFEDB32CAE88BA0045A8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CFEDB22CAE88BA0045A8C5 /* Assets.xcassets */; };
 		36CFEDB62CAE88BA0045A8C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CFEDB52CAE88BA0045A8C5 /* Preview Assets.xcassets */; };
 		36CFEDC72CAE89760045A8C5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEDC62CAE89760045A8C5 /* MainView.swift */; };
+		36CFEDCC2CAE8F1E0045A8C5 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 36CFEDCB2CAE8F1E0045A8C5 /* 1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36B7AE5C2CAE945300870915 /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		36B7AE5E2CAE952300870915 /* TestingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewModel.swift; sourceTree = "<group>"; };
+		36B7AE612CAE95E500870915 /* VideoProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessor.swift; sourceTree = "<group>"; };
+		36B7AE652CAE988000870915 /* VideoProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProcessorDelegate.swift; sourceTree = "<group>"; };
+		36B7AE672CAE98EA00870915 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		36B7AE692CAE9A2100870915 /* VisionProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionProcessor.swift; sourceTree = "<group>"; };
+		36B7AE6B2CAE9E4200870915 /* VisionProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionProcessorDelegate.swift; sourceTree = "<group>"; };
+		36B7AE6D2CAEA63300870915 /* FallDetectionProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallDetectionProcessor.swift; sourceTree = "<group>"; };
+		36B7AE6F2CAEAB9A00870915 /* FallDetectionProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallDetectionProcessorDelegate.swift; sourceTree = "<group>"; };
+		36B7AE722CAEABEB00870915 /* PerformState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformState.swift; sourceTree = "<group>"; };
 		36CFEDAB2CAE88B60045A8C5 /* Independent-Capstone-Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Independent-Capstone-Design.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CFEDAE2CAE88B60045A8C5 /* Independent_Capstone_DesignApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Independent_Capstone_DesignApp.swift; sourceTree = "<group>"; };
 		36CFEDB22CAE88BA0045A8C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CFEDB52CAE88BA0045A8C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		36CFEDC62CAE89760045A8C5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		36CFEDCB2CAE8F1E0045A8C5 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +54,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36B7AE602CAE95DE00870915 /* Processor */ = {
+			isa = PBXGroup;
+			children = (
+				36B7AE712CAEABDB00870915 /* State */,
+				36B7AE642CAE987200870915 /* Protocol */,
+				36B7AE612CAE95E500870915 /* VideoProcessor.swift */,
+				36B7AE692CAE9A2100870915 /* VisionProcessor.swift */,
+				36B7AE6D2CAEA63300870915 /* FallDetectionProcessor.swift */,
+			);
+			path = Processor;
+			sourceTree = "<group>";
+		};
+		36B7AE642CAE987200870915 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				36B7AE652CAE988000870915 /* VideoProcessorDelegate.swift */,
+				36B7AE6B2CAE9E4200870915 /* VisionProcessorDelegate.swift */,
+				36B7AE6F2CAEAB9A00870915 /* FallDetectionProcessorDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		36B7AE712CAEABDB00870915 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				36B7AE722CAEABEB00870915 /* PerformState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		36CFEDA22CAE88B60045A8C5 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +103,8 @@
 		36CFEDAD2CAE88B60045A8C5 /* Independent-Capstone-Design */ = {
 			isa = PBXGroup;
 			children = (
-				36CFEDBE2CAE88E50045A8C5 /* Extension */,
-				36CFEDBD2CAE88DD0045A8C5 /* Present */,
-				36CFEDBC2CAE88DA0045A8C5 /* App */,
-				36CFEDB22CAE88BA0045A8C5 /* Assets.xcassets */,
+				36CFEDC92CAE8EFB0045A8C5 /* Resource */,
+				36CFEDC82CAE8EF80045A8C5 /* Source */,
 				36CFEDB42CAE88BA0045A8C5 /* Preview Content */,
 			);
 			path = "Independent-Capstone-Design";
@@ -88,6 +138,7 @@
 		36CFEDBE2CAE88E50045A8C5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				36B7AE672CAE98EA00870915 /* UIImage+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -128,6 +179,7 @@
 		36CFEDC42CAE89690045A8C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				36B7AE5C2CAE945300870915 /* TestingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,8 +187,37 @@
 		36CFEDC52CAE896B0045A8C5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				36B7AE5E2CAE952300870915 /* TestingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36CFEDC82CAE8EF80045A8C5 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				36B7AE602CAE95DE00870915 /* Processor */,
+				36CFEDBE2CAE88E50045A8C5 /* Extension */,
+				36CFEDBD2CAE88DD0045A8C5 /* Present */,
+				36CFEDBC2CAE88DA0045A8C5 /* App */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		36CFEDC92CAE8EFB0045A8C5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				36CFEDCA2CAE8F140045A8C5 /* FallVideo */,
+				36CFEDB22CAE88BA0045A8C5 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		36CFEDCA2CAE8F140045A8C5 /* FallVideo */ = {
+			isa = PBXGroup;
+			children = (
+				36CFEDCB2CAE8F1E0045A8C5 /* 1.mp4 */,
+			);
+			path = FallVideo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CFEDB62CAE88BA0045A8C5 /* Preview Assets.xcassets in Resources */,
+				36CFEDCC2CAE8F1E0045A8C5 /* 1.mp4 in Resources */,
 				36CFEDB32CAE88BA0045A8C5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,8 +291,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B7AE6A2CAE9A2100870915 /* VisionProcessor.swift in Sources */,
+				36B7AE6E2CAEA63300870915 /* FallDetectionProcessor.swift in Sources */,
+				36B7AE622CAE95E500870915 /* VideoProcessor.swift in Sources */,
+				36B7AE682CAE98EA00870915 /* UIImage+.swift in Sources */,
 				36CFEDC72CAE89760045A8C5 /* MainView.swift in Sources */,
+				36B7AE732CAEABEB00870915 /* PerformState.swift in Sources */,
 				36CFEDAF2CAE88B60045A8C5 /* Independent_Capstone_DesignApp.swift in Sources */,
+				36B7AE662CAE988000870915 /* VideoProcessorDelegate.swift in Sources */,
+				36B7AE5D2CAE945300870915 /* TestingView.swift in Sources */,
+				36B7AE702CAEAB9A00870915 /* FallDetectionProcessorDelegate.swift in Sources */,
+				36B7AE5F2CAE952300870915 /* TestingViewModel.swift in Sources */,
+				36B7AE6C2CAE9E4200870915 /* VisionProcessorDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +444,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,6 +474,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
