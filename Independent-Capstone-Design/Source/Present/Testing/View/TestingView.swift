@@ -5,10 +5,13 @@ struct TestingView: View {
     @ObservedObject private var viewModel = TestingViewModel(videoProcessor: .init(),
                                                              visionProcessor: .init(),
                                                              fallDetectionProcessor: .init())
+    @State var index: Int = 1
     
     var body: some View {
         VStack {
             Image(uiImage: viewModel.drawingImage)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             
             VStack {
                 HStack {
@@ -43,9 +46,28 @@ struct TestingView: View {
         .overlay {
         }
         .onAppear {
-            viewModel.videoProcessor.startProcessing(videoName: "1")
+            viewModel.videoProcessor.startProcessing(videoName: makeAdlFileName())
+            viewModel.videoProcessor.videoPlayEndCompletion = {
+                viewModel.addResult(videoName: makeAdlFileName())
+                viewModel.saveFallStateResult(videoIndex: index)
+                index += 1
+                viewModel.resetAllFallState()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    viewModel.videoProcessor.startProcessing(videoName: makeAdlFileName())
+                }
+            }
         }
     }
+    
+    func makeAdlFileName() -> String {
+        if index < 10 {
+            return "output-fall-0\(index)"
+        } else {
+            return "output-fall-\(index)"
+        }
+    }
+    
 }
 
 #Preview {

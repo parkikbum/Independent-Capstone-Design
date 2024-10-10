@@ -5,6 +5,9 @@ final class VideoProcessor {
     private var videoOutput: AVPlayerItemVideoOutput?
     private var displayLink: CADisplayLink?
     weak var bufferDelegate: VideoProcessorDelegate?
+    private var playerItemObserver: NSKeyValueObservation?
+    var videoPlayEndCompletion: (() -> Void)?
+    
     
     func startProcessing(videoName: String) {
         guard let path = Bundle.main.path(forResource: videoName,
@@ -26,6 +29,17 @@ final class VideoProcessor {
         
         player = AVPlayer(playerItem: playerItem)
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(playerItemDidEnd),
+                                               name: .AVPlayerItemDidPlayToEndTime,
+                                               object: playerItem)
+        playerItemObserver = playerItem.observe(\.status, options: [.new]) { [weak self] item, change in
+            guard let self else { return }
+            if item.status == .failed {
+                print("Video play back Failed")
+            }
+        }
+        
         displayLink = CADisplayLink(target: self,
                                     selector: #selector(displayLinkStarting))
         displayLink?.add(to: .main, forMode: .common)
@@ -37,7 +51,7 @@ final class VideoProcessor {
     @objc
     private func displayLinkStarting() {
         guard let videoOutput = videoOutput, let currentTime = player?.currentTime() else { return }
-
+        
         if videoOutput.hasNewPixelBuffer(forItemTime: currentTime) {
             guard let buffer = videoOutput.copyPixelBuffer(forItemTime: currentTime,
                                                            itemTimeForDisplay: nil) else { return }
@@ -45,5 +59,16 @@ final class VideoProcessor {
                                            time: currentTime)
         }
     }
+    
+    @objc
+    private func playerItemDidEnd() {
+        videoPlayEndCompletion?()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        playerItemObserver?.invalidate()
+    }
+    
     
 }

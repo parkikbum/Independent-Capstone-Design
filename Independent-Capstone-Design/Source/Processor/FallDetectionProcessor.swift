@@ -12,6 +12,10 @@ final class FallDetectionProcessor {
         bodyRatioFallDetectionAlgorithm(positions: positions)
     }
     
+    func resetAllData() {
+        midYValues.removeAll()
+    }
+    
     private func midPositionsAlgorithm(positions: [VNHumanBodyPoseObservation.JointName: CGPoint]) {
         let leftHipYPosition = positions[.leftHip]?.y ?? 0
         let rightHipYPosition = positions[.rightHip]?.y ?? 0
@@ -25,12 +29,17 @@ final class FallDetectionProcessor {
             let result = judgeFallMidPosition(value: mean,
                                               threshold: 0.75)
             midYValues.removeAll()
-            resultDelegate?.getMidYChangeAlgorithmResult(state: .done, result: result)
+            resultDelegate?.getMidYChangeAlgorithmResult(state: .done, 
+                                                         result: result,
+                                                         value: mean)
         } else {
-            resultDelegate?.getMidYChangeAlgorithmResult(state: .progress, result: nil)
+            resultDelegate?.getMidYChangeAlgorithmResult(state: .progress, 
+                                                         result: nil,
+                                                         value: 0)
         }
         
     }
+    
     
     private func judgeFallMidPosition(value: CGFloat,
                                       threshold: CGFloat) -> Bool {
@@ -67,7 +76,8 @@ final class FallDetectionProcessor {
 
         resultDelegate?.getAngleAlgorithmResult(state: .done,
                                                 result: judgeFallAngle(value: angleInDegrees,
-                                                                       threshold: 55))
+                                                                       threshold: 55),
+                                                value: angleInDegrees)
     }
     
     private func judgeFallAngle(value: CGFloat,
@@ -92,7 +102,8 @@ final class FallDetectionProcessor {
                                     threshold: 1.0)
         
         resultDelegate?.getRatioAlgorithmResult(state: .done,
-                                                result: result)
+                                                result: result,
+                                                value: (width / height))
     }
     
     ///Value: 가로 / 세로 의 비율
